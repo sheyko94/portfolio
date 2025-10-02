@@ -11,6 +11,8 @@
  *    (or add `stroke="none"` on shapes with no `fill` or `stroke` specified).
  */
 export const iconPaths = {
+	phone: `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 56c0 88 72 160 160 160l24-24a16 16 0 0 0 0-22.6l-40-40a16 16 0 0 0-22.6 0l-20.7 20.7a128.1 128.1 0 0 1-52.7-52.7l20.7-20.7a16 16 0 0 0 0-22.6l-40-40A16 16 0 0 0 64 32Z"/>`,
+	envelope: `<rect x="40" y="64" width="176" height="128" rx="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="216 64 128 144 40 64" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`,
 	'terminal-window': `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m80 96 40 32-40 32m56 0h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.97" rx="8.5"/>`,
 	trophy: `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M56 56v55.1c0 39.7 31.8 72.6 71.5 72.9a72 72 0 0 0 72.5-72V56a8 8 0 0 0-8-8H64a8 8 0 0 0-8 8Zm40 168h64m-32-40v40"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M198.2 128h9.8a32 32 0 0 0 32-32V80a8 8 0 0 0-8-8h-32M58 128H47.9a32 32 0 0 1-32-32V80a8 8 0 0 1 8-8h32"/>`,
 	strategy: `<circle cx="68" cy="188" r="28" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m40 72 40 40m0-40-40 40m136 56 40 40m0-40-40 40M136 80V40h40"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m136 40 16 16c40 40 8 88-24 96"/>`,
