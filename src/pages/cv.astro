@@ -4,52 +4,25 @@ import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout
-	title="About | Ivan Gonzalez"
-	description="About Ivan Gonzalez Lorem Ipsum"
->
+<BaseLayout title="CV | Ivan Gonzalez" description="CV Ivan Gonzalez ">
 	<div class="stack gap-20">
-		<main class="wrapper about">
+		<main class="wrapper cv">
 			<Hero
-				title="About"
+				title=""
 				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
-			>
-				<img
-					width="1553"
-					height="873"
-					src="/assets/at-work.jpg"
-					alt="Ivan Gonzalez at work with a colleague"
-				/>
-			</Hero>
+			/>
 
 			<section>
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a
-							href="https://astro.build/">Astro</a
-						> makes people happy. Sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis
-						nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam
-						quis enim lobortis scelerisque fermentum dui faucibus in
-						ornare.
-					</p>
-					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et
-						egestas. Eget gravida cum sociis natoque penatibus. Cras
-						fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed
-						felis eget velit. Id diam vel quam elementum pulvinar
-						etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut.
-						Sed enim ut sem viverra aliquet eget sit amet. Lacus
-						luctus accumsan tortor posuere ac ut consequat semper
-						viverra. Viverra accumsan in nisl nisi scelerisque eu
-						ultrices. In massa tempor nec feugiat nisl pretium
-						fusce.
+						Technical Lead with 10+ years of experience in Backend,
+						DevOps, and Platform Engineering. I design and deliver
+						cloud-native platforms on AWS that remain simple while
+						scaling with business needs. Known for turning
+						complexity into clarity, setting pragmatic engineering
+						standards, and building systems that are reliable,
+						maintainable, and built to last.
 					</p>
 				</div>
 			</section>
@@ -72,7 +45,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
-	.about {
+	.cv {
 		display: flex;
 		flex-direction: column;
 		gap: 3.5rem;
@@ -113,12 +86,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	}
 
 	@media (min-width: 50em) {
-		.about {
+		.cv {
 			display: grid;
 			grid-template-columns: 1fr 60% 1fr;
 		}
 
-		.about > :global(:first-child) {
+		.cv > :global(:first-child) {
 			grid-column-start: 2;
 		}
 
