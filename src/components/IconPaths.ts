@@ -11,6 +11,8 @@
  *    (or add `stroke="none"` on shapes with no `fill` or `stroke` specified).
  */
 export const iconPaths = {
+	server: `<rect x="40" y="64" width="176" height="128" rx="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="80" cy="128" r="12" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="176" cy="128" r="12" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`,
+	cloud: `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M96 176a48 48 0 1 1 96 0H208a32 32 0 1 0-32-32c0 0-8-48-64-48a48 48 0 0 0-48 48c0 26.5 21.5 48 48 48Z"/>`,
 	phone: `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 56c0 88 72 160 160 160l24-24a16 16 0 0 0 0-22.6l-40-40a16 16 0 0 0-22.6 0l-20.7 20.7a128.1 128.1 0 0 1-52.7-52.7l20.7-20.7a16 16 0 0 0 0-22.6l-40-40A16 16 0 0 0 64 32Z"/>`,
 	envelope: `<rect x="40" y="64" width="176" height="128" rx="16" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="216 64 128 144 40 64" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>`,
 	'terminal-window': `<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m80 96 40 32-40 32m56 0h40"/><rect width="192" height="160" x="32" y="48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.97" rx="8.5"/>`,
