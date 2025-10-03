@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 // Component Imports
 import CallToAction from "../components/CallToAction.astro";
 // Page section components
-import ContactCTA from "../components/ContactCTA.astro";
+// import ContactCTA from "../components/ContactCTA.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
@@ -37,7 +37,8 @@ const projects = (await getCollection("work"))
 						>
 						<Pill><Icon icon="server" size="1.33em" /> DevOps</Pill>
 						<Pill
-							><Icon icon="cloud" size="1.33em" /> Platform Engineering</Pill
+							><Icon icon="rocket-launch" size="1.33em" /> Platform
+							Engineering</Pill
 						>
 					</div>
 				</Hero>
@@ -113,7 +114,7 @@ const projects = (await getCollection("work"))
 			</section>
 		</main>
 
-		<ContactCTA />
+		<!-- ContactCTA removed -->
 	</div>
 </BaseLayout>
 
@@ -130,11 +131,14 @@ const projects = (await getCollection("work"))
 	}
 
 	.hero img {
-		aspect-ratio: 5 / 4;
+		aspect-ratio: 1 / 1;
 		object-fit: cover;
 		object-position: top;
-		border-radius: 1.5rem;
+		border-radius: 50%;
 		box-shadow: var(--shadow-md);
+		width: 200px;
+		height: 200px;
+		max-width: 40vw;
 	}
 
 	@media (min-width: 50em) {
@@ -152,9 +156,12 @@ const projects = (await getCollection("work"))
 		}
 
 		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
+			aspect-ratio: 1 / 1;
+			border-radius: 50%;
 			object-fit: cover;
+			width: 220px;
+			height: 220px;
+			max-width: 22vw;
 		}
 	}
 
