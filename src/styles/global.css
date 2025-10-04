@@ -968,3 +968,57 @@ button[aria-pressed='false'] .icon.light {
 .project-highlights .project-card p:last-child {
 	margin-bottom: 0;
 }
+
+/* Roles area with always-visible tech chips */
+.roles-visible {
+	display: grid;
+	gap: 1rem;
+}
+
+.role {
+	display: grid;
+	gap: .5rem;
+	padding: .75rem 1rem;
+	border: 1px solid var(--gray-800);
+	border-radius: .75rem;
+	background: var(--gradient-subtle);
+	box-shadow: var(--shadow-sm);
+}
+
+.role .pill {
+	align-self: start;
+	width: fit-content;
+}
+
+.tech-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .4rem .5rem;
+}
+
+.tech-chip {
+	font: 500 var(--text-sm)/1 var(--font-body);
+	color: var(--gray-300);
+	background: var(--gray-999);
+	border: 1px solid var(--gray-800);
+	border-radius: .6rem;
+	padding: .35rem .55rem;
+	white-space: nowrap;
+}
+
+/* Responsive columns */
+@media (min-width: 40em) {
+
+	/* ~640px */
+	.roles-visible {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 64em) {
+
+	/* ~1024px */
+	.roles-visible {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
