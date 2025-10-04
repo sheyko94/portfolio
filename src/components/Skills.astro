@@ -3,44 +3,52 @@ import Icon from "./Icon.astro";
 ---
 
 <section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon
-			icon="terminal-window"
-			color="var(--accent-regular)"
-			size="2.5rem"
-			gradient
-		/>
-		<h2>Full Stack</h2>
-		<p>
+	<div class="skill-item">
+		<div class="icon-wrap">
+			<Icon
+				icon="terminal-window"
+				color="var(--accent-regular)"
+				size="2.5rem"
+				gradient
+			/>
+		</div>
+		<h2 class="skill-title">Full Stack</h2>
+		<p class="skill-desc">
 			Extensive hands-on experience across the entire stack — from local
 			development environments to fully automated, cloud-native platforms.
 			Proven ability to deliver robust, scalable systems end-to-end.
 		</p>
 	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon
-			icon="trophy"
-			color="var(--accent-regular)"
-			size="2.5rem"
-			gradient
-		/>
-		<h2>Engineering Leadership</h2>
-		<p>
+
+	<div class="skill-item">
+		<div class="icon-wrap">
+			<Icon
+				icon="trophy"
+				color="var(--accent-regular)"
+				size="2.5rem"
+				gradient
+			/>
+		</div>
+		<h2 class="skill-title">Excellence</h2>
+		<p class="skill-desc">
 			Accelerated career growth with a strong record of mentoring and
 			leading. Selected as Toptal talent and trusted as Lead Engineer by
 			multiple teams. Dedicated to continuous improvement and raising
 			engineering standards.
 		</p>
 	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon
-			icon="strategy"
-			color="var(--accent-regular)"
-			size="2.5rem"
-			gradient
-		/>
-		<h2>Systems Thinking</h2>
-		<p>
+
+	<div class="skill-item">
+		<div class="icon-wrap">
+			<Icon
+				icon="strategy"
+				color="var(--accent-regular)"
+				size="2.5rem"
+				gradient
+			/>
+		</div>
+		<h2 class="skill-title">Systems Thinking</h2>
+		<p class="skill-desc">
 			Break complex problems into simple, actionable parts. Favor
 			simplicity over unnecessary complexity. Focus on building enduring
 			systems rather than one-off features — always with the bigger
@@ -52,39 +60,79 @@ import Icon from "./Icon.astro";
 <style>
 	.box {
 		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
+		border-radius: 0.5rem;
 		padding: 1.5rem;
 		background-color: var(--gray-999_40);
 		box-shadow: var(--shadow-sm);
+		margin: 0;
 	}
 
 	.skills {
 		display: flex;
 		flex-direction: column;
 		gap: 3rem;
+		margin: 0;
 	}
 
-	.skills h2 {
+	/* --- two-column media object: [icon | title] --- */
+	.skill-item {
+		display: grid;
+		grid-template-columns: 2.5rem minmax(0, 1fr); /* lock icon width */
+		grid-auto-rows: min-content;
+		column-gap: 0.75rem;
+		row-gap: 0.5rem;
+		max-width: 34rem;
+	}
+
+	.icon-wrap {
+		grid-column: 1;
+		grid-row: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	.skill-title {
+		grid-column: 2;
+		grid-row: 1;
+		margin: 0;
 		font-size: var(--text-lg);
+		line-height: 1.15;
 	}
 
-	.skills p {
+	/* Default: description spans under both (desktop/tablet) */
+	.skill-desc {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		margin: 0.25rem 0 0 0;
 		color: var(--gray-400);
+	}
+
+	/* ---------- Mobile fix: put description under the TITLE (not under icon) ---------- */
+	@media (max-width: 40em) {
+		/* ~640px */
+		.skill-item {
+			column-gap: 0.625rem;
+		}
+		.skill-title {
+			font-size: var(--text-md);
+		}
+		.skill-desc {
+			grid-column: 2 / -1; /* start under title; no big empty left column */
+			margin-top: 0.35rem;
+		}
 	}
 
 	@media (min-width: 50em) {
 		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
+			border-radius: 0.75rem;
+			padding: 2rem;
 		}
-
 		.skills {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
+			gap: 3rem;
 		}
-
-		.skills h2 {
+		.skill-title {
 			font-size: var(--text-2xl);
 		}
 	}

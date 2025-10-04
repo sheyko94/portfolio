@@ -1,0 +1,175 @@
+---
+import Grid from "./Grid.astro";
+---
+
+<section class="section with-background bg-variant">
+    <header class="section-header stack gap-1 lg:gap-2">
+        <h3>Project Highlights</h3>
+        <p>Download my CV from the navbar for full details</p>
+    </header>
+
+    <div class="gallery">
+        <Grid variant="small">
+            <!-- iptiQ -->
+            <li class="project-card">
+                <h4>Ephemeral Test Environments</h4>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · AWS · Kubernetes/Helm · GitLab CI
+                </p>
+                <p>
+                    Cut E2E testing costs from ~€6,000 to ~€350/month and
+                    reduced cycle time from ~4h to ~40m with automated,
+                    on-demand K8s environments.
+                </p>
+            </li>
+            <li class="project-card">
+                <h4>Platform Engineering Enablement</h4>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · DevEx · CI/CD · Standards
+                </p>
+                <p>
+                    Established DevEx/DevOps practices and standardized
+                    pipelines with GitLab CI + Helm to speed delivery and slash
+                    onboarding time.
+                </p>
+            </li>
+            <li class="project-card">
+                <h4>Distributed Core Platform</h4>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · Java Spring Boot · Kafka · DDD/Hexagonal
+                </p>
+                <p>
+                    Contributed to a scalable services platform using Kafka and
+                    DDD/Hexagonal patterns to support insurance back-office
+                    workloads.
+                </p>
+            </li>
+
+            <!-- FinanceFair -->
+            <li class="project-card">
+                <h4>Double-Entry Accounting Engine</h4>
+                <p class="project-meta">
+                    FinanceFair · Java Spring Boot · PostgreSQL · AWS
+                </p>
+                <p>
+                    Designed and delivered a banking-grade ledger with strict
+                    double-entry bookkeeping for financial operations.
+                </p>
+            </li>
+            <li class="project-card">
+                <h4>Auction & Trading System</h4>
+                <p class="project-meta">
+                    FinanceFair · Java Spring Boot · Kafka
+                </p>
+                <p>
+                    Built daily auctions for loan trading and bidding,
+                    integrated with the platform’s core finance services.
+                </p>
+            </li>
+            <li class="project-card">
+                <h4>CI/CD & Cloud Migration</h4>
+                <p class="project-meta">
+                    FinanceFair · Azure → AWS · GitHub Actions
+                </p>
+                <p>
+                    Migrated platform to AWS and modernized CI/CD by replacing
+                    Jenkins with GitHub Actions.
+                </p>
+            </li>
+
+            <!-- arte -->
+            <li class="project-card">
+                <h4>Construction Projects Portal</h4>
+                <p class="project-meta">arte · Java · AWS · SQL · Docker</p>
+                <p>
+                    Led development of a public portal for the Canary Islands
+                    Government to showcase active construction projects.
+                </p>
+            </li>
+            <li class="project-card">
+                <h4>Kafka Infrastructure</h4>
+                <p class="project-meta">arte · Apache Kafka</p>
+                <p>
+                    Delivered the company’s first Kafka infrastructure to
+                    support streaming data pipelines across services.
+                </p>
+            </li>
+        </Grid>
+    </div>
+</section>
+
+<style>
+    .section {
+        display: grid;
+        gap: 2rem;
+        margin-top: 0;
+    }
+    .section-header {
+        justify-self: center;
+        text-align: center;
+        max-width: 50ch;
+        font-size: var(--text-md);
+        color: var(--gray-300);
+    }
+    .section-header h3 {
+        font-size: var(--text-2xl);
+    }
+    @media (min-width: 50em) {
+        .section {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+            gap: 3rem;
+        }
+        .section-header {
+            grid-area: header;
+            font-size: var(--text-lg);
+        }
+        .section-header h3 {
+            font-size: var(--text-4xl);
+        }
+        .gallery {
+            grid-area: gallery;
+        }
+    }
+    .with-background::before {
+        --hero-bg: var(--bg-image-subtle-2);
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 50%;
+        width: 100vw;
+        aspect-ratio: calc(2.25 / var(--bg-scale));
+        top: 0;
+        transform: translateY(-55%) translateX(-50%);
+        background:
+            url("/assets/backgrounds/noise.png") top center/220px repeat,
+            var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+            var(--gray-999);
+        background-blend-mode: overlay, normal, normal, normal;
+        mix-blend-mode: var(--bg-blend-mode);
+        z-index: -1;
+    }
+    .with-background.bg-variant::before {
+        --hero-bg: var(--bg-image-subtle-1);
+    }
+    .project-card {
+        display: grid;
+        gap: 0.35rem;
+        padding: 1rem;
+        border: 1px solid var(--gray-800);
+        border-radius: 1rem;
+        background: var(--gradient-subtle);
+        box-shadow: var(--shadow-sm);
+        color: var(--gray-200);
+    }
+    .project-card h4 {
+        margin: 0;
+        font-size: var(--text-lg);
+        color: var(--gray-0);
+    }
+    .project-meta {
+        margin: 0;
+        font-size: var(--text-sm);
+        color: var(--gray-400);
+    }
+</style>
