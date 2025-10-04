@@ -1,74 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Icon from "../components/Icon.astro";
+import Header from "../components/Header.astro";
 import Skills from "../components/Skills.astro";
 import Highlights from "../components/Highlights.astro";
 ---
 
 <BaseLayout>
-	<div class="stack gap-10 lg:gap-30">
+	<div class="stack gap-10">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<div class="hero-text">
-					<h1 class="title">Hi, I'm Ivan Gonzalez</h1>
-					<p class="tagline">
-						Lead Engineer with 10+ years in backend, DevOps, and
-						platform engineering
-					</p>
-
-					<div class="roles-visible">
-						<div class="role">
-							<span class="pill"
-								><Icon icon="code" size="1.2em" /> Backend</span
-							>
-							<div class="tech-row">
-								<span class="tech-chip">Java</span>
-								<span class="tech-chip">Spring Boot</span>
-								<span class="tech-chip">DDD</span>
-								<span class="tech-chip">Kafka</span>
-								<span class="tech-chip">PostgreSQL</span>
-								<span class="tech-chip">MongoDB</span>
-							</div>
-						</div>
-
-						<div class="role">
-							<span class="pill"
-								><Icon icon="server" size="1.2em" /> DevOps</span
-							>
-							<div class="tech-row">
-								<span class="tech-chip">AWS</span>
-								<span class="tech-chip">Docker</span>
-								<span class="tech-chip">Kubernetes</span>
-								<span class="tech-chip">Helm</span>
-								<span class="tech-chip">GitLab CI</span>
-								<span class="tech-chip">Terraform</span>
-							</div>
-						</div>
-
-						<div class="role">
-							<span class="pill"
-								><Icon icon="rocket-launch" size="1.2em" /> Platform
-								Engineering</span
-							>
-							<div class="tech-row">
-								<span class="tech-chip">AI Integration</span>
-								<span class="tech-chip">FinOps</span>
-								<span class="tech-chip">DevEx</span>
-								<span class="tech-chip">Observability</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<img
-					alt="Ivan Gonzalez Cabral professional portrait"
-					width="336"
-					height="434"
-					src="/assets/portrait.jpeg"
-				/>
-			</header>
+			<Header />
 		</div>
-
 		<main class="wrapper stack">
 			<Skills />
 			<Highlights />

@@ -5,7 +5,7 @@ import Icon from "./Icon.astro";
 
 <section class="section with-background bg-variant project-highlights">
     <header class="section-header stack gap-1 lg:gap-2">
-        <h3>Highlights</h3>
+        <h3>Achievements & Projects</h3>
     </header>
     <div class="gallery">
         <Grid variant="small">
@@ -31,7 +31,7 @@ import Icon from "./Icon.astro";
             <li class="project-card">
                 <div class="project-title">
                     <span class="project-icon" aria-hidden="true">
-                        <Icon icon="strategy" size="1.2em" />
+                        <Icon icon="ai" size="1.2em" />
                     </span>
                     <h4>AI-Powered Email Processing</h4>
                 </div>
@@ -40,7 +40,7 @@ import Icon from "./Icon.astro";
                 </p>
                 <p>
                     Integrated with AWS Bedrock to categorize incoming emails
-                    from AWS SNS and trigger automated workflows. This first AI
+                    from AWS SNS and trigger automated workflows. This AI
                     integration reduced task execution time from ~7 minutes to
                     just ~15 seconds, delivering a step-change in efficiency.
                 </p>
@@ -59,27 +59,6 @@ import Icon from "./Icon.astro";
                     Reduced E2E testing costs from ~€6,000 to ~€350/month and
                     cut cycle time from ~4h to ~40m by introducing automated,
                     on-demand ephemeral environments.
-                </p>
-            </li>
-
-            <li class="project-card">
-                <div class="project-title">
-                    <span class="project-icon" aria-hidden="true">
-                        <Icon icon="strategy" size="1.2em" />
-                    </span>
-                    <h4>AI MCP Integration Layer</h4>
-                </div>
-                <p class="project-meta">
-                    iptiQ (Swiss Re) · AI Integration · AWS Bedrock · MCP ·
-                    Analytics
-                </p>
-                <p>
-                    Integrated MCPO (Model Context Protocol OpenAPI compatible)
-                    into the platform, enabling natural language queries across
-                    tools like Grafana, Prometheus, Elasticsearch, Jira, and
-                    Confluence. This AI-powered integration allows quick
-                    insights and multi-source data analysis without requiring
-                    deep technical expertise.
                 </p>
             </li>
 
@@ -106,7 +85,7 @@ import Icon from "./Icon.astro";
             <li class="project-card">
                 <div class="project-title">
                     <span class="project-icon" aria-hidden="true">
-                        <Icon icon="server" size="1.2em" />
+                        <Icon icon="key" size="1.2em" />
                     </span>
                     <h4>OAuth2 Authentication Services</h4>
                 </div>
@@ -115,10 +94,44 @@ import Icon from "./Icon.astro";
                     · JWT
                 </p>
                 <p>
-                    Implemented a standalone authentication microservice for a
-                    distributed system, issuing and verifying JWT bearer tokens.
-                    Centralized security across services with OAuth2 flows,
-                    token validation, and standards-based integration.
+                    Implemented standalone authentication microservices for
+                    distributed systems, issuing and verifying JWT bearer
+                    tokens. Centralized security across services with OAuth2 to
+                    host in-house security.
+                </p>
+            </li>
+
+            <li class="project-card">
+                <div class="project-title">
+                    <span class="project-icon" aria-hidden="true">
+                        <Icon icon="cloud" size="1.2em" />
+                    </span>
+                    <h4>Cloud Migration & CI/CD Modernization</h4>
+                </div>
+                <p class="project-meta">FinanceFair · AWS · GitHub Actions</p>
+                <p>
+                    Led the migration of the platform from Azure to AWS while
+                    modernizing the delivery pipeline. Replaced Jenkins with
+                    GitHub Actions to streamline deployments, improve
+                    reliability, and enhance overall developer productivity.
+                </p>
+            </li>
+
+            <li class="project-card">
+                <div class="project-title">
+                    <span class="project-icon" aria-hidden="true">
+                        <Icon icon="server" size="1.2em" />
+                    </span>
+                    <h4>Kafka Streaming</h4>
+                </div>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · Java · Spring Boot · Kafka
+                </p>
+                <p>
+                    Designed and implemented Kafka-based event streaming to
+                    capture and route all system events into a centralized data
+                    lake. This foundation enabled real-time partner
+                    notifications.
                 </p>
             </li>
 
@@ -127,32 +140,58 @@ import Icon from "./Icon.astro";
                     <span class="project-icon" aria-hidden="true">
                         <Icon icon="code" size="1.2em" />
                     </span>
-                    <h4>Distributed Core Platform</h4>
+                    <h4>Distributed Platform</h4>
                 </div>
                 <p class="project-meta">
-                    iptiQ (Swiss Re) · Java Spring Boot · Kafka · DDD/Hexagonal
+                    iptiQ (Swiss Re) · Java · Spring Boot · Kafka · DDD ·
+                    Hexagonal · Event Driven
                 </p>
                 <p>
-                    Contributed to a scalable services platform using Kafka and
-                    DDD/Hexagonal patterns to support insurance back-office
-                    workloads.
+                    Designed and built distributed microservices using
+                    event-driven architecture, Domain-Driven Design, and
+                    Hexagonal patterns. Delivered robust, testable services with
+                    comprehensive unit and integration testing to support
+                    mission-critical insurance operations.
                 </p>
             </li>
 
-            <!-- FinanceFair -->
             <li class="project-card">
                 <div class="project-title">
                     <span class="project-icon" aria-hidden="true">
                         <Icon icon="code" size="1.2em" />
                     </span>
-                    <h4>Double-Entry Accounting Engine</h4>
+                    <h4>double-entry bookkeeping engine</h4>
                 </div>
                 <p class="project-meta">
-                    FinanceFair · Java Spring Boot · PostgreSQL · AWS
+                    FinanceFair · Java · Spring Boot · Kafka · PostgreSQL
                 </p>
                 <p>
-                    Designed and delivered a banking-grade ledger with strict
-                    double-entry bookkeeping for financial operations.
+                    Built a double-entry bookkeeping engine that powered
+                    financial operations across the entire company. Delivered a
+                    banking-grade ledger system enabling finance teams to manage
+                    transactions with full accuracy and reliability directly
+                    from the platform.
+                </p>
+            </li>
+
+            <li class="project-card">
+                <div class="project-title">
+                    <span class="project-icon" aria-hidden="true">
+                        <Icon icon="ai" size="1.2em" />
+                    </span>
+                    <h4>AI MCP Integration Layer</h4>
+                </div>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · AI Integration · AWS Bedrock · MCP ·
+                    Analytics
+                </p>
+                <p>
+                    Integrated MCPO (Model Context Protocol OpenAPI compatible)
+                    into the platform, enabling natural language queries across
+                    tools like Grafana, Prometheus, Elasticsearch, Jira, and
+                    Confluence. This AI-powered integration allows quick
+                    insights and multi-source data analysis without requiring
+                    deep technical expertise.
                 </p>
             </li>
 
@@ -161,44 +200,16 @@ import Icon from "./Icon.astro";
                     <span class="project-icon" aria-hidden="true">
                         <Icon icon="list" size="1.2em" />
                     </span>
-                    <h4>Auction & Trading System</h4>
+                    <h4>Auction & Bidding System</h4>
                 </div>
                 <p class="project-meta">
-                    FinanceFair · Java Spring Boot · Kafka
+                    FinanceFair · Java · Spring Boot · Kafka · PostgreSQL
                 </p>
                 <p>
-                    Built daily auctions for loan trading and bidding,
-                    integrated with the platform’s core finance services.
-                </p>
-            </li>
-
-            <li class="project-card">
-                <div class="project-title">
-                    <span class="project-icon" aria-hidden="true">
-                        <Icon icon="server" size="1.2em" />
-                    </span>
-                    <h4>CI/CD & Cloud Migration</h4>
-                </div>
-                <p class="project-meta">
-                    FinanceFair · Azure → AWS · GitHub Actions
-                </p>
-                <p>
-                    Migrated platform to AWS and modernized CI/CD by replacing
-                    Jenkins with GitHub Actions.
-                </p>
-            </li>
-
-            <li class="project-card">
-                <div class="project-title">
-                    <span class="project-icon" aria-hidden="true">
-                        <Icon icon="server" size="1.2em" />
-                    </span>
-                    <h4>Kafka Infrastructure</h4>
-                </div>
-                <p class="project-meta">arte · Apache Kafka</p>
-                <p>
-                    Delivered the company’s first Kafka infrastructure to
-                    support streaming data pipelines across services.
+                    Designed and developed engines to run daily auctions,
+                    enabling automated (mandates) and manual bidding from
+                    customers and seamless integration with the platform's core
+                    financial services.
                 </p>
             </li>
         </Grid>

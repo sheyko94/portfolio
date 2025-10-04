@@ -391,7 +391,7 @@ nav {
 	align-items: center;
 	padding: var(--icon-padding, 0.5rem);
 	text-decoration: none;
-	color: var(--accent-dark);
+	color: black;
 	transition: color var(--theme-transition);
 }
 
@@ -402,21 +402,22 @@ nav {
 
 .cv-link {
 	font-weight: 700;
-	color: var(--accent-regular);
+	color: black;
 	background: var(--gray-999_40);
 	border-radius: 1.25rem;
-	border: 1px solid var(--accent-regular);
+	border: 1px solid black;
 	padding: 0.15em 0.45em;
 	margin-left: 0.2em;
 	display: flex;
 	align-items: center;
 	gap: 0.18em;
+	font-size: .8em;
 }
 
 .cv-label {
 	margin-left: 0.08em;
 	font-size: 1em;
-	color: var(--accent-regular);
+	color: black;
 	font-weight: 700;
 	letter-spacing: 0.04em;
 }
@@ -458,7 +459,7 @@ nav {
 }
 
 .tagline {
-	font-size: var(--text-xl);
+	font-size: var(--text-lg);
 	color: var(--gray-300);
 	margin: 0;
 	max-width: 60ch;
@@ -548,7 +549,7 @@ nav {
 .section-header {
 	justify-self: center;
 	text-align: center;
-	max-width: 50ch;
+	max-width: 80ch;
 	font-size: var(--text-md);
 	color: var(--gray-300);
 }
@@ -957,18 +958,6 @@ button[aria-pressed='false'] .icon.light {
 	/* ensure it shows */
 }
 
-
-/* Metadatos y párrafos */
-.project-highlights .project-meta {
-	margin: 0;
-	font-size: var(--text-sm);
-	color: var(--gray-400);
-}
-
-.project-highlights .project-card p:last-child {
-	margin-bottom: 0;
-}
-
 /* Roles area with always-visible tech chips */
 .roles-visible {
 	display: grid;
@@ -1022,3 +1011,198 @@ button[aria-pressed='false'] .icon.light {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
+
+.pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+	margin-top: .75rem;
+}
+
+.skills-cloud {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+	margin-top: .75rem;
+}
+
+/* 10% smaller + centered hero */
+.hero.hero--compact {
+	/* scale text + pills + chips by ~10% */
+	font-size: 0.9em;
+
+	/* center the whole block in the viewport */
+	min-height: 60vh;
+	align-items: center;
+	/* vertical centering for the grid */
+	margin-inline: auto;
+	/* ensure centered within wrapper */
+	gap: 2.5rem;
+}
+
+/* tighten badge/cloud spacing a bit so it feels more compact */
+.hero.hero--compact .pill-row {
+	gap: 0.4rem;
+	margin-top: 0.6rem;
+}
+
+.hero.hero--compact .skills-cloud {
+	gap: 0.4rem;
+	margin-top: 0.6rem;
+}
+
+/* make the portrait ~10% smaller on desktop, keep mobile as-is */
+@media (min-width: 50em) {
+	.hero.hero--compact img {
+		width: 198px;
+		/* 220px → ~10% smaller */
+		height: 198px;
+	}
+}
+
+/* Split hero layout: intro (L) + photo (R), then pills full width */
+.hero--split {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"intro"
+		"photo"
+		"pills"
+		"cloud";
+	align-items: center;
+	gap: 1.25rem;
+	/* compact */
+	font-size: 0.9em;
+	/* ~10% smaller overall, like earlier */
+	min-height: 60vh;
+	/* keep it nicely centered on larger screens */
+}
+
+.hero--split .intro {
+	grid-area: intro;
+}
+
+.hero--split .portrait {
+	grid-area: photo;
+	justify-self: center;
+	border-radius: 50%;
+	box-shadow: var(--shadow-md);
+}
+
+.hero--split .pills {
+	grid-area: pills;
+}
+
+.hero--split .skills-cloud {
+	grid-area: cloud;
+}
+
+.pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+
+.skills-cloud {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+
+/* Desktop / tablet: two columns, pills below spanning both */
+@media (min-width: 50em) {
+	.hero--split {
+		grid-template-columns: 6fr 4fr;
+		/* left text, right photo */
+		grid-template-areas:
+			"intro  photo"
+			"pills  pills"
+			"cloud  cloud";
+		gap: 1.75rem;
+	}
+
+	.hero--split .portrait {
+		justify-self: end;
+		/* keep photo to the right */
+		width: 198px;
+		height: 198px;
+		/* ~10% smaller than 220px */
+	}
+}
+
+/* Mobile order: title -> subtitle -> photo -> pills (already achieved by areas) */
+@media (max-width: 49.999em) {
+	.hero--split .portrait {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+/* --- HERO: reducir espacio horizontal y alinear la foto a la izq --- */
+.hero--split {
+	/* móvil: igual que antes, pero con gap un poco menor */
+	gap: 1rem;
+}
+
+/* Desktop / tablet */
+@media (min-width: 50em) {
+	.hero--split {
+		/* Texto ocupa el espacio, la foto usa su ancho real */
+		grid-template-columns: 1fr auto;
+		/* mucho menos espacio entre columnas */
+		column-gap: 1rem;
+		/* prueba 0.75rem si aún ves hueco */
+		row-gap: 1.25rem;
+	}
+
+	.hero--split .portrait {
+		justify-self: start;
+		/* alinea la imagen a la IZQUIERDA */
+		align-self: center;
+		/* centrada verticalmente frente al texto */
+		width: 198px;
+		height: 198px;
+		/* opcional: un mini ajuste fino si quieres pegarla aún más */
+		/* margin-left: -4px; */
+	}
+}
+
+/* Quita el margen superior del ul que pinta Grid */
+.project-highlights .gallery .grid {
+	margin: 0;
+	/* elimina margen arriba/abajo */
+	padding: 0;
+	/* por si acaso */
+}
+
+/* (Opcional) si algún otro estilo lo reimpone, fuerza arriba a 0 */
+.project-highlights .gallery .grid {
+	margin-top: 0 !important;
+}
+
+/* Tighter spacing inside project cards */
+.project-card .project-title {
+	margin-bottom: 0.25rem;
+}
+
+.project-card .project-meta {
+	margin: 0.15rem 0 0.25rem;
+	/* was larger by default */
+	line-height: 1.35;
+	/* optional: slightly tighter */
+	color: var(--gray-400);
+}
+
+.project-card p {
+	margin: 0.25rem 0 0;
+	/* remove big default top margin */
+	line-height: 1.45;
+	/* optional: a bit tighter text */
+}
+
+/* If any cards still look airy, you can shave a bit off the card padding too */
+.project-card {
+	padding: 0.85rem;
+}
+
+/* was 1rem */

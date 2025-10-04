@@ -6,168 +6,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ivan Gonzalez — CV</title>
     <style>
+        /* ====== THEME ====== */
         :root {
             --bg: #f6f7fb;
             --paper: #ffffff;
             --ink: #0f172a;
-            --muted: #64748b;
-            --border: #e5e7eb;
-            --accent: #7c3aed;
-            --shadow: 0 1px 4px rgba(15, 23, 42, .04);
+            --muted: #5b677d;
+            --border: #e6e8ee;
+            --accent: #6d28d9;
+            /* slightly calmer purple */
+            --shadow: 0 2px 18px rgba(15, 23, 42, .06);
+            --radius: 14px;
         }
 
+        /* ====== RESET / BASE ====== */
         * {
             box-sizing: border-box
         }
 
+        html {
+            scroll-behavior: smooth
+        }
+
         body {
             margin: 0;
+            color: var(--ink);
             background: var(--bg);
-            color: var(--ink);
-            font: 14.5px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            text-rendering: optimizeLegibility;
         }
 
-        .page {
-            max-width: 980px;
-            margin: 28px auto;
-            padding: 0 18px
-        }
-
-        header {
-            background: #fff;
-            color: var(--ink);
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border)
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap
-        }
-
-        .name {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -.02em;
-            margin: 0
-        }
-
-        .role {
-            margin: .2rem 0 0;
-            opacity: .9;
-            font-weight: 600
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            font-size: .93rem;
-            gap: 12px;
-            line-height: 1.35
-        }
-
-        .contact-info a {
-            color: inherit;
-            text-decoration: none
-        }
-
-        .contact-info span,
-        .contact-info a {
-            display: flex;
-            align-items: center;
-            gap: 6px
-        }
-
-        .contact-info svg {
-            width: 14px;
-            height: 14px;
-            fill: var(--muted)
-        }
-
-        .sheet {
-            background: var(--paper);
-            padding: 24px 24px;
-            box-shadow: var(--shadow)
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 2.1fr 1fr;
-            gap: 28px
-        }
-
-        h2 {
-            font-size: .95rem;
-            text-transform: uppercase;
-            letter-spacing: .06em;
-            color: #111;
-            margin: 4px 0 12px
-        }
-
-        h3 {
-            font-size: 1.05rem;
-            margin: 0 0 4px
+        a {
+            color: inherit
         }
 
         p {
-            margin: 6px 0
+            margin: .35rem 0 0
         }
 
         ul {
-            margin: 6px 0 0 18px;
+            margin: .5rem 0 0 1.1rem;
             padding: 0
         }
 
         li {
-            margin: 4px 0
+            margin: .35rem 0
         }
 
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            line-height: 1.25
+        }
+
+        h2 {
+            font-size: .95rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #0b1220;
+            margin: 2px 0 10px;
+        }
+
+        h3 {
+            font-size: 1.05rem
+        }
+
+        /* ====== LAYOUT ====== */
+        .page {
+            max-width: 980px;
+            margin: 28px auto;
+            padding: 0 18px;
+        }
+
+        header {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-bottom: none;
+            border-radius: var(--radius) var(--radius) 0 0;
+            padding: 18px 22px 16px;
+        }
+
+        .sheet {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 22px 22px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Top header block */
+        .top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .identity .name {
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 0 0 2px;
+        }
+
+        .identity .role {
+            margin: 0;
+            font-weight: 600;
+            color: #0b1220;
+            opacity: .9;
+        }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            gap: 8px;
+            justify-items: end;
+            font-size: .95rem;
+            line-height: 1.35;
+        }
+
+        .contact a,
+        .contact span {
+            display: inline-grid;
+            grid-auto-flow: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .contact svg {
+            width: 15px;
+            height: 15px;
+            fill: var(--muted);
+            flex: none;
+        }
+
+        .contact a {
+            border-bottom: 1px solid transparent
+        }
+
+        .contact a:hover {
+            border-bottom-color: var(--accent)
+        }
+
+        /* Intro/sections spacing rhythm */
+        .profile {
+            margin: 0 0 22px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2.05fr 1fr;
+            gap: 26px;
+        }
+
+        /* Cards (right column) */
+        .card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 14px 12px;
+            margin: 0 0 12px;
+            background: #fff;
+        }
+
+        /* Experience section */
         .xp .item {
-            padding: 8px 0;
-            margin-bottom: 10px
+            padding: 10px 0 12px;
+            border-top: 1px dashed var(--border);
         }
 
-        .xp .item .row {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-            align-items: flex-start
+        .xp .item:first-of-type {
+            border-top: none;
+            padding-top: 2px
         }
 
-        .xp .where {
-            font-weight: bold;
-            color: var(--muted)
+        .xp .row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: 12px;
+            margin: 0 0 2px;
+        }
+
+        .where {
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: .01em;
         }
 
         .stack {
             color: var(--muted);
-            font-size: .93rem
+            font-size: .93rem;
+            margin: .25rem 0 .2rem;
         }
 
-        .badges {
+        /* Pills / skills */
+        .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px
-        }
-
-        .badge {
-            background: #f8fafc;
-            padding: 4px 8px;
-            border-radius: 999px;
-            font-size: .85rem
-        }
-
-        .card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 12px 14px;
-            margin-bottom: 12px
+            gap: 8px 8px;
         }
 
         .pill {
@@ -175,60 +217,155 @@
             padding: 6px 10px;
             border-radius: 999px;
             background: #f8fafc;
-            margin: 4px 6px 0 0
+            border: 1px solid var(--border);
+            font-size: .8rem;
+            line-height: 1;
         }
 
-        .skills {
+        /* Fine text tweaks */
+        .muted {
+            color: var(--muted)
+        }
+
+        .about {
+            font-size: 1rem;
+            max-width: 72ch;
+        }
+
+        .about strong {
+            font-weight: 700
+        }
+
+        /* Section dividers in right column titles */
+        .card h2 {
             display: flex;
-            flex-wrap: wrap
+            align-items: center;
+            gap: 10px;
+            margin: 2px 0 8px;
         }
 
-        .sheet>section.profile {
-            margin-bottom: 32px
+        .card h2::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--border), transparent);
+            margin-top: 1px;
         }
 
+        /* Prevent overly long links from breaking layout */
+        .contact a {
+            overflow-wrap: anywhere
+        }
+
+        /* ====== PRINT OVERRIDES ====== */
         @media print {
+            @page {
+                size: A4;
+                margin: 12mm
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact
+            }
+
             body {
                 background: #fff !important
             }
 
-            header {
-                background: #fff !important;
-                color: #000 !important;
-                box-shadow: none
-            }
-
             .page {
+                max-width: none;
+                margin: 0;
                 padding: 0
             }
 
-            .sheet {
-                box-shadow: none;
-                background: #fff
+            /* Remove borders/shadows for a flat, clean page */
+            header {
+                background: #fff !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
             }
 
-            .grid {
-                grid-template-columns: 2fr 1fr
+            .sheet {
+                background: #fff !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+
+            .card {
+                border: none !important;
+            }
+
+            .pill {
+                border: none !important;
+                background: #f3f4f6 !important;
             }
 
             .xp .item {
-                page-break-inside: avoid
+                border-top: none !important;
             }
 
-            h2,
-            h3 {
-                color: #000 !important
+            /* remove dashed separators */
+            .card h2::after {
+                background: transparent !important
+            }
+
+            /* remove title dividers */
+
+            /* Layout + flow */
+            .top {
+                grid-template-columns: 1fr auto !important;
+                gap: 14px !important;
+            }
+
+            .contact {
+                justify-items: end
+            }
+
+            .grid {
+                grid-template-columns: 2fr 1fr !important
+            }
+
+            .identity .name {
+                font-size: 1.9rem !important
+            }
+
+            .identity .role {
+                font-size: .95rem !important
+            }
+
+            header {
+                break-after: avoid-page;
+            }
+
+            .sheet {
+                break-before: avoid-page;
+                break-inside: auto;
+            }
+
+            .xp .item {
+                break-inside: avoid
+            }
+
+            /* Don’t print raw URLs after links */
+            a[href]:after {
+                content: "" !important
             }
         }
 
-        @media(max-width:880px) {
+
+        /* ====== SMALL SCREENS ====== */
+        @media (max-width:880px) {
             .top {
-                flex-direction: column;
-                align-items: flex-start
+                grid-template-columns: 1fr;
+                gap: 12px
             }
 
-            .contact-info {
-                align-items: flex-start
+            .contact {
+                justify-items: start
             }
 
             .grid {
@@ -239,133 +376,174 @@
 </head>
 
 <body>
-    <main class="page">
+    <main class="page" role="main">
         <header>
             <div class="top">
-                <div>
+                <div class="identity">
                     <h1 class="name">Ivan Gonzalez Cabral</h1>
-                    <div class="role">Lead Engineer — Backend · DevOps · Platform</div>
+                    <p class="role">Lead Engineer — Backend · DevOps · Platform · AI</p>
                 </div>
-                <div class="contact-info">
-                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <div class="contact" aria-label="Contact information">
+                    <span class="muted">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
-                        </svg>Netherlands · EU Remote</span>
-                    <a href="mailto:ivangonzalezcabral94@gmail.com"><svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
+                        </svg>
+                        Netherlands · EU Remote
+                    </span>
+                    <a href="mailto:ivangonzalezcabral94@gmail.com" aria-label="Email Ivan">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-                        </svg>ivangonzalezcabral94@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/ivan-gonzalez-cabral/" target="_blank" rel="noreferrer"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        </svg>
+                        ivangonzalezcabral94@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/ivan-gonzalez-cabral/" target="_blank" rel="noreferrer"
+                        aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75S5.53 4.22 6.5 4.22s1.75.79 1.75 1.75-.78 1.75-1.75 1.75zM20 19h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V19h-3v-10h2.88v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.6V19z" />
-                        </svg>linkedin.com/in/ivan-gonzalez-cabral</a>
-                    <a href="https://github.com/sheyko94" target="_blank" rel="noreferrer"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        </svg>
+                        linkedin.com/in/ivan-gonzalez-cabral
+                    </a>
+                    <a href="https://github.com/sheyko94" target="_blank" rel="noreferrer" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.39-3.88-1.39-.53-1.34-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.26 3.39.96.11-.75.41-1.26.75-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.89-.39c.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.63 1.57.23 2.73.11 3.02.74.81 1.19 1.85 1.19 3.11 0 4.43-2.68 5.41-5.23 5.7.42.37.8 1.1.8 2.22v3.29c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
-                        </svg>github.com/sheyko94</a>
+                        </svg>
+                        github.com/sheyko94
+                    </a>
                 </div>
             </div>
         </header>
+
         <section class="sheet">
             <section class="profile">
-                <h2>About Me</h2>
-                <p>Technical Lead with 10+ years of experience in Backend, DevOps, and Platform Engineering. I design
-                    and deliver cloud‑native platforms on AWS that remain simple while scaling with business needs.
-                    Known for turning complexity into clarity, setting pragmatic engineering standards, and building
-                    systems that are reliable, maintainable, and built to last.</p>
+                <p class="about">
+                    Lead Engineer with 10+ years of experience in Backend, DevOps, and Platform Engineering. I design
+                    and deliver cloud-native platforms on AWS that stay simple while scaling with business needs. Known
+                    for turning complexity into clarity, setting pragmatic engineering standards, and building systems
+                    that are reliable, maintainable, and built to last.
+                </p>
             </section>
+
             <div class="grid">
+                <!-- LEFT -->
                 <div>
                     <section class="xp">
                         <h2>Experience</h2>
+
                         <article class="item">
                             <div class="row">
                                 <h3>Tech Lead</h3>
                                 <div class="where">iptiQ by Swiss Re · Apr 2022 – Present</div>
                             </div>
-                            <p class="stack">Java/Kotlin · Spring Boot · Kafka · PostgreSQL · MongoDB · AWS ·
-                                Kubernetes/Helm · GitLab CI</p>
+                            <p class="stack">AI Integration · AWS · Java/Kotlin · Spring Boot · Kafka · Kubernetes ·
+                                Terraform · PostgreSQL · MongoDB · GitLab CI</p>
                             <ul>
-                                <li>Built and guided the Platform Engineering function (DevEx, DevOps, backend
-                                    operations) with standardized processes and best practices.</li>
-                                <li>Reduced end‑to‑end testing costs from ~€6,000 to ~€350/month and cut test cycles
-                                    from 4h to ~40m.</li>
-                                <li>Improved developer experience, accelerating delivery and reducing onboarding time
-                                    significantly.</li>
-                                <li>Contributed to a scalable distributed platform using Kafka, DDD, and Hexagonal
-                                    Architecture.</li>
+                                <li><strong>Platform Engineering Enablement</strong> — Founded and led the Platform
+                                    Engineering team, driving DevEx and DevOps. Accelerated delivery, reduced onboarding
+                                    time, and raised quality standards by centralizing processes, tooling, and
+                                    practices.</li>
+                                <li><strong>AI-Powered Email Processing</strong> — Integrated AWS Bedrock to categorize
+                                    emails from SNS and trigger automated workflows. Reduced execution time from ~7
+                                    minutes to ~15 seconds.</li>
+                                <li><strong>Ephemeral Test Environments</strong> — Cut E2E test costs from ~€6,000 to
+                                    ~€350/month and reduced cycles from ~4h to ~40m with automated ephemeral
+                                    environments.</li>
+                                <li><strong>Kafka Streaming</strong> — Designed and implemented event streaming to
+                                    capture and route system events into a centralized data lake, enabling real-time
+                                    notifications and analytics.</li>
+                                <li><strong>Distributed Platform</strong> — Delivered microservices with event-driven
+                                    architecture, DDD, and Hexagonal patterns. Built robust services with unit and
+                                    integration tests supporting mission-critical insurance ops.</li>
                             </ul>
-
                         </article>
+
                         <article class="item">
                             <div class="row">
                                 <h3>Tech Lead</h3>
                                 <div class="where">FinanceFair · Apr 2019 – Apr 2022</div>
                             </div>
-                            <p class="stack">Java · Spring Boot · Kafka · PostgreSQL · AWS · Terraform · Docker/K8s ·
-                                GitHub Actions</p>
+                            <p class="stack">AWS · Java · Spring Boot · MongoDB · PostgreSQL · Docker · GitHub Actions
+                            </p>
                             <ul>
-                                <li>Implemented a double‑entry transactions banking system.</li>
-                                <li>Designed and built trading & bidding systems for daily auctions.</li>
-                                <li>Delivered OAuth2 authentication services and led Azure→AWS migration.</li>
-                                <li>Modernized CI/CD from Jenkins to GitHub Actions.</li>
+                                <li><strong>OAuth2 Authentication Services</strong> — Implemented standalone
+                                    authentication microservices for distributed systems, issuing and verifying JWT
+                                    bearer tokens.</li>
+                                <li><strong>Cloud Migration & CI/CD Modernization</strong> — Led migration from Azure to
+                                    AWS and replaced Jenkins with GitHub Actions, streamlining deployments and improving
+                                    reliability.</li>
+                                <li><strong>Double-Entry Bookkeeping Engine</strong> — Built a banking-grade ledger that
+                                    powered financial operations, enabling finance teams to manage transactions directly
+                                    from the platform.</li>
+                                <li><strong>Auction & Bidding System</strong> — Designed and developed engines for daily
+                                    auctions, integrating automated and manual flows with core finance services.</li>
                             </ul>
                         </article>
+
                         <article class="item">
                             <div class="row">
                                 <h3>Senior Software Engineer</h3>
                                 <div class="where">arte · Mar 2018 – Apr 2019</div>
                             </div>
-                            <p class="stack">Java · Kafka · AWS · SQL · Docker</p>
+                            <p class="stack">AWS · Java · Kafka · SQL · Docker</p>
                             <ul>
-                                <li>Led development of a platform showcasing active construction sites for the Canary
-                                    Islands Government.</li>
-                                <li>Built Kafka infrastructure and collaborated closely with leadership.</li>
+                                <li><strong>Kafka Infrastructure</strong> — Delivered the company’s first Kafka backbone
+                                    to support real-time data pipelines.</li>
+                                <li><strong>Construction Projects Portal</strong> — Led development of a public portal
+                                    for the Canary Islands Government showcasing active construction projects.</li>
                             </ul>
                         </article>
+
                         <article class="item">
                             <div class="row">
                                 <h3>Other Experience</h3>
                                 <div class="where">Apr 2016 – Mar 2018</div>
                             </div>
                             <ul>
-                                <li>Early‑career engineering roles and foundational learning.</li>
+                                <li>Early-career engineering roles and foundational learning.</li>
                             </ul>
                         </article>
                     </section>
                 </div>
+
+                <!-- RIGHT -->
                 <aside>
                     <section class="card">
                         <h2>Skills</h2>
                         <div class="skills">
                             <span class="pill">AWS</span>
+                            <span class="pill">AI Integration</span>
                             <span class="pill">Java</span>
-                            <span class="pill">Spring Boot</span>
+                            <span class="pill">SpringBoot</span>
+                            <span class="pill">Docker</span>
                             <span class="pill">GitLab CI</span>
-                            <span class="pill">Terraform</span>
                             <span class="pill">Kubernetes</span>
                             <span class="pill">Helm</span>
-                            <span class="pill">MongoDB</span>
+                            <span class="pill">Terraform</span>
+                            <span class="pill">Grafana</span>
+                            <span class="pill">Kibana</span>
+                            <span class="pill">Elastic Search</span>
+                            <span class="pill">Prometheus</span>
+                            <span class="pill">Kafka</span>
                             <span class="pill">PostgreSQL</span>
-                            <span class="pill">Apache Kafka</span>
-                            <span class="pill">Docker</span>
+                            <span class="pill">MongoDB</span>
+                            <span class="pill">OAuth2</span>
+                            <span class="pill">DDD</span>
+                            <span class="pill">Hexagonal Architecture</span>
                         </div>
                     </section>
+
                     <section class="card">
                         <h2>Certificates</h2>
-                        <ul>
-                            <li>CKAD — Certified Kubernetes Application Developer</li>
-                        </ul>
+                        CKAD — Certified Kubernetes Application Developer
                     </section>
+
                     <section class="card">
                         <h2>Languages</h2>
-                        <ul>
-                            <li>English</li>
-                            <li>Spanish</li>
-                        </ul>
+                        English</br>
+                        Spanish
                     </section>
                 </aside>
             </div>
