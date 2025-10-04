@@ -1,31 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
-import Pill from "../components/Pill.astro";
-import Hero from "../components/Hero.astro";
 import Skills from "../components/Skills.astro";
-import ProjectHighlights from "../components/ProjectHighlights.astro";
-import Mentions from "../components/Mentions.astro";
+import Highlights from "../components/Highlights.astro";
 ---
 
 <BaseLayout>
 	<div class="stack gap-10 lg:gap-30">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
-					title="Hi, I'm Ivan Gonzalez"
-					tagline="Lead Engineer with 10+ years in backend, DevOps, and platform engineering"
-					align="start"
-				>
+				<div class="hero-text">
+					<h1 class="title">Hi, I'm Ivan Gonzalez</h1>
+					<p class="tagline">
+						Lead Engineer with 10+ years in backend, DevOps, and
+						platform engineering
+					</p>
+
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" />Backend</Pill>
-						<Pill><Icon icon="server" size="1.33em" />DevOps</Pill>
-						<Pill
+						<span class="pill"
+							><Icon icon="code" size="1.33em" />Backend</span
+						>
+						<span class="pill"
+							><Icon icon="server" size="1.33em" />DevOps</span
+						>
+						<span class="pill"
 							><Icon icon="rocket-launch" size="1.33em" />Platform
-							Engineering</Pill
+							Engineering</span
 						>
 					</div>
-				</Hero>
+				</div>
 
 				<img
 					alt="Ivan Gonzalez Cabral professional portrait"
@@ -34,57 +37,11 @@ import Mentions from "../components/Mentions.astro";
 					src="/assets/portrait.jpeg"
 				/>
 			</header>
-
-			<Skills />
 		</div>
 
 		<main class="wrapper stack">
-			<ProjectHighlights />
-			<Mentions />
+			<Skills />
+			<Highlights />
 		</main>
 	</div>
 </BaseLayout>
-
-<style>
-	/* Solo estilos del hero (cada sección trae los suyos propios) */
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.roles {
-		display: none;
-	}
-
-	.hero img {
-		aspect-ratio: 1 / 1;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 50%;
-		box-shadow: var(--shadow-md);
-		width: 200px;
-		height: 200px;
-		max-width: 40vw;
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-		.hero img {
-			width: 220px;
-			height: 220px;
-			max-width: 22vw;
-		}
-	}
-</style>

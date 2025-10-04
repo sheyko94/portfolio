@@ -1,55 +1,68 @@
-/* Global variables */
 :root {
-	/* Colors */
-	--gray-0: #090b11;
-	--gray-50: #141925;
-	--gray-100: #283044;
-	--gray-200: #3d4663;
-	--gray-300: #505d84;
-	--gray-400: #6474a2;
-	--gray-500: #8490b5;
-	--gray-600: #a3acc8;
-	--gray-700: #c3cadb;
-	--gray-800: #e3e6ee;
-	--gray-900: #f3f4f7;
+	/* ====== Color System: White / Gray / Blue ====== */
+	/* Grays (neutral, cool-leaning) */
+	--gray-0: #0b1220;
+	/* headings on light, deep slate */
+	--gray-50: #121a2a;
+	--gray-100: #1e293b;
+	--gray-200: #334155;
+	/* body text */
+	--gray-300: #475569;
+	--gray-400: #64748b;
+	/* muted text */
+	--gray-500: #94a3b8;
+	--gray-600: #cbd5e1;
+	--gray-700: #e2e8f0;
+	--gray-800: #eef2f7;
+	/* light borders */
+	--gray-900: #f5f7fb;
+	/* subtle background */
 	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
 	--gray-999: #ffffff;
+	/* page background */
 
-	--accent-light: #c561f6;
-	--accent-regular: #7611a6;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
+	/* Blues (primary accent) */
+	--accent-light: #60a5fa;
+	/* Blue 400 */
+	--accent-regular: #2563eb;
+	/* Blue 600 – main brand */
+	--accent-overlay: rgba(37, 99, 235, 0.25);
+	/* soft overlay */
 	--accent-subtle-overlay: var(--accent-overlay);
-	--accent-text-over: var(--gray-999);
+	--accent-text-over: #ffffff;
 
 	--link-color: var(--accent-regular);
 
-	/* Gradients */
+	/* ====== Gradients ====== */
 	--gradient-stop-1: var(--accent-light);
 	--gradient-stop-2: var(--accent-regular);
-	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
-	--gradient-accent: linear-gradient(150deg,
-			var(--gradient-stop-1),
-			var(--gradient-stop-2),
-		);
-	--gradient-accent-orange: linear-gradient(150deg,
-			#ca7879,
-			var(--accent-regular),
-		);
+	/* very subtle card bg from near-white to white */
+	--gradient-subtle: linear-gradient(150deg, #f7f9fc 15%, #ffffff 120%);
+	--gradient-accent: linear-gradient(150deg, var(--gradient-stop-1), var(--gradient-stop-2));
+	/* optional secondary accent (blue → indigo) */
+	--gradient-accent-orange: linear-gradient(150deg, #7aa7ff, #1e40af);
+
 	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 
-	/* Shadows */
+	/* ====== Shadows ====== (unchanged) */
 	--shadow-sm:
-		0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
-		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
+		0px 6px 3px rgba(9, 11, 17, 0.01),
+		0px 4px 2px rgba(9, 11, 17, 0.01),
+		0px 2px 2px rgba(9, 11, 17, 0.02),
+		0px 0px 1px rgba(9, 11, 17, 0.03);
 	--shadow-md:
-		0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
-		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
+		0px 28px 11px rgba(9, 11, 17, 0.01),
+		0px 16px 10px rgba(9, 11, 17, 0.03),
+		0px 7px 7px rgba(9, 11, 17, 0.05),
+		0px 2px 4px rgba(9, 11, 17, 0.06);
 	--shadow-lg:
-		0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
-		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
+		0px 62px 25px rgba(9, 11, 17, 0.01),
+		0px 35px 21px rgba(9, 11, 17, 0.05),
+		0px 16px 16px rgba(9, 11, 17, 0.1),
+		0px 4px 9px rgba(9, 11, 17, 0.12);
 
-	/* Text Sizes */
+	/* ====== Typography ====== (unchanged) */
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-md: 1.125rem;
@@ -60,24 +73,62 @@
 	--text-4xl: 3.5rem;
 	--text-5xl: 4.5rem;
 
-	/* Fonts */
-	--font-system:
-		system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-		"Open Sans", "Helvetica Neue", sans-serif;
+	--font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	--font-body: "Public Sans", var(--font-system);
 	--font-brand: Rubik, var(--font-system);
 
-	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
+
+	/* ====== Background images (kept; just work better on white/blue) ====== */
+	--_placeholder-bg: linear-gradient(transparent, transparent);
+	--bg-image-main: url("/assets/backgrounds/bg-main-light-800w.jpg");
+	--bg-image-main-curves: url("/assets/backgrounds/bg-main-light.svg");
+	--bg-image-subtle-1: var(--_placeholder-bg);
+	--bg-image-subtle-2: var(--_placeholder-bg);
+	--bg-image-footer: var(--_placeholder-bg);
+	--bg-svg-blend-mode: overlay;
+	--bg-blend-mode: darken;
+	--bg-image-aspect-ratio: 2.25;
+	--bg-scale: 1.68;
+	--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
+	--bg-gradient-size: calc(var(--bg-scale) * 100%);
+}
+
+/* Lazy-loaded bg variants for larger screens (unchanged) */
+:root.loaded {
+	--bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-800w.jpg");
+	--bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-800w.jpg");
+	--bg-image-footer: url("/assets/backgrounds/bg-footer-light-800w.jpg");
+}
+
+@media (min-width: 50em) {
+	:root {
+		--bg-scale: 1;
+		--bg-image-main: url("/assets/backgrounds/bg-main-light-1440w.jpg");
+	}
+
+	:root.loaded {
+		--bg-image-subtle-1: url("/assets/backgrounds/bg-subtle-1-light-1440w.jpg");
+		--bg-image-subtle-2: url("/assets/backgrounds/bg-subtle-2-light-1440w.jpg");
+		--bg-image-footer: url("/assets/backgrounds/bg-footer-light-1440w.jpg");
+	}
 }
 
 
-
-
-
+/* =========================
+   2) Reset & base
+   ========================= */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
 html,
 body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
 }
@@ -88,13 +139,6 @@ body {
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
-}
-
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-	margin: 0;
 }
 
 img {
@@ -137,8 +181,13 @@ h5 {
 	font-size: var(--text-xl);
 }
 
-/* Utilities */
+svg {
+	vertical-align: middle;
+	width: var(--size, 1em);
+	height: var(--size, 1em);
+}
 
+/* Screen-reader utility */
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -151,6 +200,9 @@ h5 {
 	border-width: 0;
 }
 
+/* =========================
+   3) Layout utilities
+   ========================= */
 .wrapper {
 	width: 100%;
 	max-width: 83rem;
@@ -163,6 +215,7 @@ h5 {
 	flex-direction: column;
 }
 
+/* spacing utilities */
 .gap-2 {
 	gap: 0.5rem;
 }
@@ -227,4 +280,691 @@ h5 {
 	.lg\:gap-48 {
 		gap: 12rem;
 	}
+}
+
+/* Grid util */
+.grid {
+	display: grid;
+	grid-auto-rows: 1fr;
+	gap: 1rem;
+	list-style: none;
+	padding: 0;
+}
+
+.grid.small {
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+}
+
+.grid.small> :global(:last-child:nth-child(odd)) {
+	grid-column: 1 / 3;
+}
+
+@media (min-width: 50em) {
+	.grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+	}
+
+	.grid.offset {
+		--row-offset: 7.5rem;
+		padding-bottom: var(--row-offset);
+	}
+
+	.grid.offset> :global(:nth-child(odd)) {
+		transform: translateY(var(--row-offset));
+	}
+
+	.grid.offset> :global(:last-child:nth-child(odd)) {
+		grid-column: 2 / 3;
+		transform: none;
+	}
+
+	.grid.small {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	.grid.small> :global(*) {
+		flex-basis: 20rem;
+	}
+}
+
+/* =========================
+   4) Backgrounds wrapper
+   ========================= */
+.backgrounds {
+	min-height: 100%;
+	isolation: isolate;
+	background:
+		url("/assets/backgrounds/noise.png") top center/220px repeat,
+		var(--bg-image-footer) bottom center/var(--bg-gradient-size) no-repeat,
+		var(--bg-image-main-curves) top center/var(--bg-gradient-size) no-repeat,
+		var(--bg-image-main) top center/var(--bg-gradient-size) no-repeat,
+		var(--gray-999);
+	background-blend-mode: overlay, var(--bg-blend-mode), var(--bg-svg-blend-mode), normal, normal;
+}
+
+@media (forced-colors: active) {
+	.backgrounds {
+		background: none;
+		background-blend-mode: none;
+		--bg-gradient-size: none;
+	}
+}
+
+/* =========================
+   5) Navbar (icons a la derecha)
+   ========================= */
+nav {
+	z-index: 9999;
+	position: relative;
+	font-family: var(--font-brand);
+	font-weight: 500;
+	margin-bottom: 3.5rem;
+	width: 100%;
+}
+
+.menu-header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1.5rem;
+	justify-content: flex-end;
+	/* clave: derecha en todos los tamaños */
+}
+
+.socials {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.625rem;
+	font-size: var(--icon-size, var(--text-xl));
+	margin-left: auto;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.social {
+	display: flex;
+	align-items: center;
+	padding: var(--icon-padding, 0.5rem);
+	text-decoration: none;
+	color: var(--accent-dark);
+	transition: color var(--theme-transition);
+}
+
+.social:hover,
+.social:focus {
+	color: var(--accent-text-over);
+}
+
+.cv-link {
+	font-weight: 700;
+	color: var(--accent-regular);
+	background: var(--gray-999_40);
+	border-radius: 1.25rem;
+	border: 1px solid var(--accent-regular);
+	padding: 0.15em 0.45em;
+	margin-left: 0.2em;
+	display: flex;
+	align-items: center;
+	gap: 0.18em;
+}
+
+.cv-label {
+	margin-left: 0.08em;
+	font-size: 1em;
+	color: var(--accent-regular);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+/* Desktop padding simple */
+@media (min-width: 50em) {
+	nav {
+		padding: 2.5rem 5rem;
+	}
+
+	.menu-header {
+		padding: 0;
+	}
+}
+
+/* ===== Hero layout ===== */
+.hero {
+	display: grid;
+	grid-template-columns: 6fr 4fr;
+	/* texto | imagen */
+	align-items: center;
+	/* centra verticalmente la imagen respecto al bloque de texto */
+	gap: 2.5rem;
+	padding-inline: 2.5rem;
+}
+
+.hero-text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	/* espacio entre título, subtítulo y pills */
+	text-align: start;
+}
+
+.title {
+	font-size: var(--text-5xl);
+	color: var(--gray-0);
+	margin: 0;
+}
+
+.tagline {
+	font-size: var(--text-xl);
+	color: var(--gray-300);
+	margin: 0;
+	max-width: 60ch;
+}
+
+.roles {
+	display: flex;
+	/* visibles en todos los tamaños */
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 0.25rem;
+}
+
+.hero img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: top;
+	border-radius: 50%;
+	box-shadow: var(--shadow-md);
+	width: 220px;
+	height: 220px;
+	justify-self: end;
+	/* empuja la imagen al borde derecho */
+	max-width: 22vw;
+}
+
+/* Mobile: pila vertical con imagen debajo */
+@media (max-width: 50em) {
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.75rem;
+		padding-inline: 1.5rem;
+		text-align: center;
+	}
+
+	.hero-text {
+		text-align: center;
+		align-items: center;
+	}
+
+	.title {
+		font-size: var(--text-3xl);
+	}
+
+	.tagline {
+		font-size: var(--text-lg);
+	}
+
+	.hero img {
+		width: 200px;
+		height: 200px;
+		max-width: 40vw;
+		justify-self: center;
+	}
+}
+
+
+/* Pills */
+.pill {
+	display: flex;
+	padding: 0.5rem 1rem;
+	gap: 0.5rem;
+	color: var(--accent-text-over);
+	border: 1px solid var(--accent-regular);
+	background-color: var(--accent-regular);
+	border-radius: 1.25rem;
+	font-size: var(--text-md);
+	line-height: 1.35;
+	white-space: nowrap;
+}
+
+/* =========================
+   7) Secciones & fondos decorativos
+   ========================= */
+.section {
+	display: grid;
+	gap: 2rem;
+	margin-top: 0;
+}
+
+.section+.section {
+	margin-top: 2.5rem;
+}
+
+.section-header {
+	justify-self: center;
+	text-align: center;
+	max-width: 50ch;
+	font-size: var(--text-md);
+	color: var(--gray-300);
+}
+
+.section-header h3 {
+	font-size: var(--text-2xl);
+}
+
+@media (min-width: 50em) {
+	.section {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-areas:
+			"header header header header"
+			"gallery gallery gallery gallery";
+		gap: 3rem;
+	}
+
+	.section-header {
+		grid-area: header;
+		font-size: var(--text-lg);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-4xl);
+	}
+
+	.gallery {
+		grid-area: gallery;
+	}
+}
+
+/* Fondo decorativo detrás de .with-background */
+.with-background::before {
+	--hero-bg: var(--bg-image-subtle-2);
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	left: 50%;
+	width: 100vw;
+	aspect-ratio: calc(2.25 / var(--bg-scale));
+	top: 0;
+	transform: translateY(-55%) translateX(-50%);
+	background:
+		url("/assets/backgrounds/noise.png") top center/220px repeat,
+		var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+		var(--gray-999);
+	background-blend-mode: overlay, normal, normal, normal;
+	mix-blend-mode: var(--bg-blend-mode);
+	z-index: -1;
+}
+
+.with-background.bg-variant::before {
+	--hero-bg: var(--bg-image-subtle-1);
+}
+
+/* =========================
+   8) Tarjetas (Project & Mention)
+   ========================= */
+.project-card {
+	display: grid;
+	gap: 0.35rem;
+	padding: 1rem;
+	border: 1px solid var(--gray-800);
+	border-radius: 1rem;
+	background: var(--gradient-subtle);
+	box-shadow: var(--shadow-sm);
+	color: var(--gray-200);
+}
+
+.project-card h4 {
+	margin: 0;
+	font-size: var(--text-lg);
+	color: var(--gray-0);
+}
+
+.project-meta {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--gray-400);
+}
+
+.mention-card {
+	display: flex;
+	height: 7rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: 1px solid var(--gray-800);
+	border-radius: 1.5rem;
+	color: var(--gray-300);
+	background: var(--gradient-subtle);
+	box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 50em) {
+	.mention-card {
+		border-radius: 1.5rem;
+		height: 9.5rem;
+	}
+}
+
+/* =========================
+   9) Skills (media-object)
+   ========================= */
+.box {
+	border: 1px solid var(--gray-800);
+	border-radius: 0.5rem;
+	padding: 1.5rem;
+	background-color: var(--gray-999_40);
+	box-shadow: var(--shadow-sm);
+	margin: 0;
+}
+
+.skills {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	margin: 0;
+}
+
+.skill-item {
+	display: grid;
+	grid-template-columns: 2.5rem minmax(0, 1fr);
+	/* icon | title */
+	grid-auto-rows: min-content;
+	column-gap: 0.75rem;
+	row-gap: 0.5rem;
+	max-width: 34rem;
+}
+
+.icon-wrap {
+	grid-column: 1;
+	grid-row: 1;
+	display: flex;
+	align-items: center;
+}
+
+.skill-title {
+	grid-column: 2;
+	grid-row: 1;
+	margin: 0;
+	font-size: var(--text-lg);
+	line-height: 1.15;
+}
+
+.skill-desc {
+	grid-column: 1 / -1;
+	grid-row: 2;
+	margin: 0.25rem 0 0 0;
+	color: var(--gray-400);
+}
+
+/* móvil: descripción bajo el título (no debajo del icono) */
+@media (max-width: 40em) {
+	.skill-item {
+		column-gap: 0.625rem;
+	}
+
+	.skill-title {
+		font-size: var(--text-md);
+	}
+
+	.skill-desc {
+		grid-column: 2 / -1;
+		margin-top: 0.35rem;
+	}
+}
+
+/* desktop skills grid */
+@media (min-width: 50em) {
+	.box {
+		border-radius: 0.75rem;
+		padding: 2rem;
+	}
+
+	.skills {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3rem;
+	}
+
+	.skill-title {
+		font-size: var(--text-2xl);
+	}
+}
+
+/* =========================
+   10) Footer (minimal)
+   ========================= */
+footer {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	margin-top: auto;
+	padding: 3rem 2rem 3rem;
+	text-align: center;
+	color: var(--gray-400);
+	font-size: var(--text-sm);
+}
+
+footer a {
+	color: var(--gray-400);
+	text-decoration: 1px solid underline transparent;
+	text-underline-offset: 0.25em;
+	transition: text-decoration-color var(--theme-transition);
+}
+
+footer a:hover,
+footer a:focus {
+	text-decoration-color: currentColor;
+}
+
+.group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+@media (min-width: 50em) {
+	footer {
+		align-items: center;
+		justify-content: center;
+		padding: 2.5rem 5rem;
+	}
+
+	.group {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+}
+
+/* =========================
+   11) Theme toggle (si lo usas)
+   ========================= */
+button {
+	display: flex;
+	border: 0;
+	border-radius: 999rem;
+	padding: 0;
+	background-color: var(--gray-999);
+	box-shadow: inset 0 0 0 1px var(--accent-overlay);
+	cursor: pointer;
+}
+
+.icon {
+	z-index: 1;
+	position: relative;
+	display: flex;
+	padding: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	font-size: 1rem;
+	color: var(--accent-overlay);
+}
+
+.icon.light::before {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	inset: 0;
+	background-color: var(--accent-regular);
+	border-radius: 999rem;
+}
+
+:global(.theme-dark) .icon.light::before {
+	transform: translateX(100%);
+}
+
+:global(.theme-dark) .icon.dark,
+:global(html:not(.theme-dark)) .icon.light,
+button[aria-pressed='false'] .icon.light {
+	color: var(--accent-text-over);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.icon,
+	.icon.light::before {
+		transition: transform var(--theme-transition), color var(--theme-transition);
+	}
+}
+
+@media (forced-colors: active) {
+	.icon.light::before {
+		background-color: SelectedItem;
+	}
+}
+
+
+/* ===== Grid (1 / 2 / 3 cols máx) ===== */
+.projects-grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 1rem;
+	/* más compacto */
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	justify-items: center;
+	/* centra cada caja si es más estrecha que la columna */
+}
+
+@media (min-width: 40em) {
+	.projects-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 70em) {
+	.projects-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* ==== Force 1 / 2 / 3 columns only inside Project Highlights ==== */
+
+/* Base: 1 column on mobile */
+.project-highlights .gallery .grid.small {
+	display: grid !important;
+	/* override global flex on large screens */
+	grid-template-columns: 1fr;
+	/* 1 col mobile */
+	gap: 1.5rem;
+}
+
+/* ≥ 40em (~640px): 2 columns */
+@media (min-width: 40em) {
+	.project-highlights .gallery .grid.small {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* ≥ 70em (~1120px): 3 columns */
+@media (min-width: 70em) {
+	.project-highlights .gallery .grid.small {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* Forzar 1/2/3 columnas solo aquí */
+.project-highlights .gallery .grid.small {
+	display: grid !important;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+}
+
+@media (min-width: 40em) {
+	.project-highlights .gallery .grid.small {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 70em) {
+	.project-highlights .gallery .grid.small {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* Card base (ligeramente compacto) */
+.project-highlights .project-card {
+	padding: 0.875rem;
+	border: 1px solid var(--gray-800);
+	border-radius: 0.9rem;
+	background: var(--gradient-subtle);
+	box-shadow: var(--shadow-sm);
+	color: var(--gray-200);
+	display: grid;
+	gap: 0.5rem;
+	/* un poco más aire para el título con icono */
+}
+
+/* Título con icono (y posible mini-imagen) */
+.project-highlights .project-title {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	/* icon | title | (optional small image) */
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.project-highlights .project-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 0;
+	color: var(--accent-regular);
+}
+
+.project-highlights .project-title h4 {
+	margin: 0;
+	font-size: calc(var(--text-lg) * 0.95);
+	color: var(--gray-0);
+	line-height: 1.2;
+}
+
+/* In project-highlights.css */
+.project-highlights .title-media {
+	width: 28px;
+	height: 28px;
+	border-radius: 0.35rem;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+	/* ensure it shows */
+}
+
+
+/* Metadatos y párrafos */
+.project-highlights .project-meta {
+	margin: 0;
+	font-size: var(--text-sm);
+	color: var(--gray-400);
+}
+
+.project-highlights .project-card p:last-child {
+	margin-bottom: 0;
 }
