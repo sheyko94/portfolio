@@ -13,29 +13,16 @@ const iconLinks: Array<{
 		icon: "linkedin-logo",
 	},
 	{
-		label: "GitHub",
-		href: "https://github.com/sheyko94",
-		icon: "github-logo",
-	},
-	{
 		label: "Gmail",
 		href: "mailto:ivangonzalezcabral94@gmail.com",
 		icon: "envelope",
 	},
 	{
 		label: "CV",
-		href: "/cv-embed.html",
+		href: "/cv.pdf", // point directly to the PDF
 		icon: "download",
 	},
 ];
-
-/** Test if a link is pointing to the current page. */
-const isCurrentPage = (href: string) => {
-	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
-	if (pathname.at(0) !== "/") pathname = "/" + pathname;
-	if (pathname.at(-1) !== "/") pathname += "/";
-	return pathname === href || (href !== "/" && pathname.startsWith(href));
-};
 ---
 
 <nav>
@@ -47,7 +34,8 @@ const isCurrentPage = (href: string) => {
 						<a
 							href={href}
 							class="social cv-link"
-							onclick={`event.preventDefault(); var w = window.open('${href}', '_blank'); w.onload = function() { w.print(); };`}
+							download="cv.pdf"
+							type="application/pdf"
 						>
 							<Icon icon={icon} />
 							<span class="cv-label">CV</span>
@@ -83,22 +71,16 @@ const isCurrentPage = (href: string) => {
 			// Hide menu (shown by default to support no-JS browsers).
 			const menu = document.getElementById("menu-content")!;
 			menu.hidden = true;
-			// Add "menu-content" class in JS to avoid covering content in non-JS browsers.
 			menu.classList.add("menu-content");
 
-			/** Set whether the menu is currently expanded or collapsed. */
-			const setExpanded = (expand: boolean) => {
+			const setExpanded = (expand) => {
 				btn.setAttribute("aria-expanded", expand ? "true" : "false");
 				menu.hidden = !expand;
 			};
 
-			// Toggle menu visibility when the menu button is clicked.
 			btn.addEventListener("click", () => setExpanded(menu.hidden));
 
-			// Hide menu button for large screens.
-			const handleViewports = (
-				e: MediaQueryList | MediaQueryListEvent,
-			) => {
+			const handleViewports = (e) => {
 				setExpanded(e.matches);
 				btn.hidden = e.matches;
 			};

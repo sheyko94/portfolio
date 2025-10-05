@@ -4,10 +4,8 @@ import Icon from "./Icon.astro";
 ---
 
 <section class="section with-background bg-variant project-highlights">
-    <header class="section-header stack gap-1 lg:gap-2">
-        <h3>Achievements & Projects</h3>
-    </header>
     <div class="gallery">
+        <h3>Achievements & Projects</h3>
         <Grid variant="small">
             <li class="project-card">
                 <div class="project-title">
@@ -104,6 +102,22 @@ import Icon from "./Icon.astro";
             <li class="project-card">
                 <div class="project-title">
                     <span class="project-icon" aria-hidden="true">
+                        <Icon icon="money" size="1.2em" />
+                    </span>
+                    <h4>Cloud Cost Optimization</h4>
+                </div>
+                <p class="project-meta">
+                    iptiQ (Swiss Re) · FinOps · DevOps · AWS
+                </p>
+                <p>
+                    Achieved a 15% reduction in monthly AWS costs across the
+                    organization with FinOps operations.
+                </p>
+            </li>
+
+            <li class="project-card">
+                <div class="project-title">
+                    <span class="project-icon" aria-hidden="true">
                         <Icon icon="cloud" size="1.2em" />
                     </span>
                     <h4>Cloud Migration & CI/CD Modernization</h4>
@@ -129,9 +143,9 @@ import Icon from "./Icon.astro";
                 </p>
                 <p>
                     Designed and implemented Kafka-based event streaming to
-                    capture and route all system events into a centralized data
-                    lake. This foundation enabled real-time partner
-                    notifications.
+                    capture and route all system events into a centralized
+                    notifications system. This foundation enabled real-time
+                    partner notifications.
                 </p>
             </li>
 
@@ -140,7 +154,7 @@ import Icon from "./Icon.astro";
                     <span class="project-icon" aria-hidden="true">
                         <Icon icon="code" size="1.2em" />
                     </span>
-                    <h4>Distributed Platform</h4>
+                    <h4>Distributed microservices</h4>
                 </div>
                 <p class="project-meta">
                     iptiQ (Swiss Re) · Java · Spring Boot · Kafka · DDD ·
@@ -158,7 +172,7 @@ import Icon from "./Icon.astro";
             <li class="project-card">
                 <div class="project-title">
                     <span class="project-icon" aria-hidden="true">
-                        <Icon icon="code" size="1.2em" />
+                        <Icon icon="calculator" size="1.2em" />
                     </span>
                     <h4>double-entry bookkeeping engine</h4>
                 </div>
